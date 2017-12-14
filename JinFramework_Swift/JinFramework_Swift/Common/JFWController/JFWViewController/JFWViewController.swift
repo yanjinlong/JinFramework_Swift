@@ -342,7 +342,7 @@ class JFWViewController: UIViewController {
     /// - Parameters:
     ///   - tips: 提示内容
     ///   - dismissBlock: 消失时的执行block
-    func showSuccessTips(tips: String, dismissBlock: @escaping () -> Swift.Void?) {
+    func showSuccessTips(tips: String, dismissBlock: (() -> Swift.Void)? = nil) {
         DispatchQueue.main.async {
             self.hud.showSuccess(with: tips)
             let time = DispatchTime.now() + Double(Int64(1.2 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
@@ -350,7 +350,7 @@ class JFWViewController: UIViewController {
             DispatchQueue.main.asyncAfter(deadline: time, execute: {
                 self.dismissLoading()
                 
-                dismissBlock()
+                dismissBlock?()
             })
         }
     }
