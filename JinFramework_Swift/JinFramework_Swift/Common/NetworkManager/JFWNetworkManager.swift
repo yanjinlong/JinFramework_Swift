@@ -63,4 +63,14 @@ class JFWNetworkManager: NetworkManager {
 //        self.paramsDict[method] = parameters
 //        self.errorTimesDict[method] = MaxErrorTimes
 //    }
+    
+    /**
+     设置http头
+     
+     @param method 方法名
+     */
+    func setHttpHeader(method: String) {
+        let request = self.manager.requestSerializer
+        request.setValue(method, forHTTPHeaderField: "method")
+    }
 }

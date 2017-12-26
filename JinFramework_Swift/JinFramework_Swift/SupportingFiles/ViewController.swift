@@ -19,16 +19,6 @@ class ViewController: JFWViewController {
     fileprivate var addressBookItems: [AddressBookItem] = [AddressBookItem]()
     
     override func customView() {
-        let model1 = TableRowItem(icon: nil, text: "1", code: nil)
-        let model2 = model1
-        model2.text = "2"
-        
-        if model1 == model2 {
-            NSLog("true")
-        } else {
-            NSLog("false")
-        }
-        
 //        CNContactStore().requestAccess(for: .contacts) { (isRight, error) in
 //            if isRight {
 //                //授权成功加载数据。
@@ -39,6 +29,31 @@ class ViewController: JFWViewController {
 //                print(self.addressBookItems.count)
 //            }
 //        }
+        
+//        let vc = LectionViewController()
+//        self.present(vc, animated: true, completion: nil)
+        
+//        let network = AFHTTPSessionManager()
+//        network.requestSerializer = AFJSONRequestSerializer()
+//        network.responseSerializer = AFJSONResponseSerializer()
+//        var param = [String: String]()
+//        param["cate"] = "1"
+//        param["formSource"] = "iOS"
+//        param["pageNo"] = "1"
+//        param["pageSize"] = "50"
+//
+//        network.post("http://192.168.31.99/zb_users/plugin/haloapi/api.php?act=qryArticle", parameters: param, progress: nil, success: { (task
+//            , responseData) in
+//            let result = responseData as! NSDictionary
+//            print(result)
+//        }, failure: { (task, error) in
+//            print(error)
+//        })
+    }
+    
+    @IBAction func gotoLection(_ sender: Any) {
+        let vc = LectionViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func loadAddressBook() -> Void {

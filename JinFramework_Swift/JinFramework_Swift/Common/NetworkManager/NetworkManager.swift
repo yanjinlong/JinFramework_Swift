@@ -113,7 +113,7 @@ class NetworkManager: NSObject {
                     self.successBlock(task, responseObject: responseObject!)
                 }
                 else {
-                    NSLog("delegate被释放");
+                    NSLog("delegate被释放")
                 }
             }, failure: { (task, error) in
                 let currentClass = NetworkManager.className(self.delegate)
@@ -122,11 +122,31 @@ class NetworkManager: NSObject {
                     self.failureBlock(task!, error:error)
                 }
                 else {
-                    NSLog("delegate被释放");
+                    NSLog("delegate被释放")
                 }
             })
         } else if type == RequestType.post {
-            
+            self.manager.post(url, parameters: parameters, progress: { (progress) in
+                // 进度
+            }, success: { (task, responseObject) in
+                let currentClass = NetworkManager.className(self.delegate)
+                
+                if (currentClass == self.originalClass) {
+                    self.successBlock(task, responseObject: responseObject!)
+                }
+                else {
+                    NSLog("delegate被释放")
+                }
+            }, failure: { (task, error) in
+                let currentClass = NetworkManager.className(self.delegate)
+                
+                if (currentClass == self.originalClass) {
+                    self.failureBlock(task!, error:error)
+                }
+                else {
+                    NSLog("delegate被释放")
+                }
+            })
         }
     }
     
@@ -157,7 +177,7 @@ class NetworkManager: NSObject {
     }
     
     class func className(_ obj: Any) -> String {
-        return String(describing: type(of: obj))
+        return (obj as AnyObject).className()
     }
     
     // MARK: - 静态类方法

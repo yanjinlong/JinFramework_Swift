@@ -2,6 +2,8 @@ AFNetworking:网络访问（https://github.com/AFNetworking/AFNetworking）
 
 FDFullscreenPopGesture:全屏的滑动pop控制器，禁用滑动返回：viewController.fd_interactivePopDisabled = YES;（https://github.com/forkingdog/FDFullscreenPopGesture）
 
+HandyJSON:json转模型的组件（https://github.com/alibaba/handyjson）
+
 IQKeyBoardManager:键盘弹出与收回（https://github.com/hackiftekhar/IQKeyboardManager）
 
 JGActionSheet:从底部弹起的视图，可以自定义（https://github.com/JonasGessner/JGActionSheet）

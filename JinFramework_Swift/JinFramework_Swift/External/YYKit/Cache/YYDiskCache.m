@@ -168,7 +168,7 @@ static void _YYDiskCacheSetGlobal(YYDiskCache *cache) {
     YYKVStorageType type;
     if (threshold == 0) {
         type = YYKVStorageTypeFile;
-    } else if (threshold == NSUIntegerMax) {
+    } else if (threshold == 1024 * 100) {
         type = YYKVStorageTypeSQLite;
     } else {
         type = YYKVStorageTypeMixed;

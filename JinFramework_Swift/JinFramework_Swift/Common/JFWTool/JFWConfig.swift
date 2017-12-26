@@ -13,7 +13,7 @@ let UI_SCREEN_FWIDTH = (UIScreen.main.bounds.size.width)
 let UI_SCREEN_FHEIGHT = (UIScreen.main.bounds.size.height)
 
 /// 屏幕因子 2或3（1的已经不存在了）
-let WWScreenScale = UIScreen.main.scale
+let UI_Screen_Scale = UIScreen.main.scale
 
 let UI_iPhone6P_H: CGFloat = 736
 let UI_iPhone6_H: CGFloat = 667
@@ -39,3 +39,21 @@ let kJFWScreenScale = (UI_SCREEN_FWIDTH / UI_iPhone6_W)
 
 /// 默认错误提示
 let DefaultErrorTips = "网络异常，请稍后再试！"
+
+extension Int {
+    /// 屏幕适配
+    ///
+    /// - Returns: 适配后的值
+    func screenScale() -> CGFloat {
+        return CGFloat(self).screenScale()
+    }
+}
+
+extension CGFloat {
+    /// 屏幕适配
+    ///
+    /// - Returns: 适配后的值
+    func screenScale() -> CGFloat {
+        return self * kJFWScreenScale
+    }
+}

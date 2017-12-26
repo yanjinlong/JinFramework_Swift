@@ -228,7 +228,7 @@ class JFWViewController: UIViewController {
     
     override var description: String {
         get {
-            return "\(self.className())(\(self.descriptionCN())"
+            return "\(self.className())(\(self.descriptionCN()))"
         }
     }
     
