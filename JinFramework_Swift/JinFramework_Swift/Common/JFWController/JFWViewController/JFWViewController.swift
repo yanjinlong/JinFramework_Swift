@@ -423,7 +423,7 @@ extension JFWViewController: NetworkDelegate {
         if withPopCount > 0 {
             var navVCArray = self.rt_navigationController.viewControllers
             
-            for _ in 0...withPopCount {
+            for _ in 0..<withPopCount {
                 navVCArray.remove(at: navVCArray.count - 1)
             }
             
